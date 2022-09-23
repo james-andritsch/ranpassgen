@@ -75,26 +75,28 @@ function generatePassword() {
   detUpCase();
   console.log(detUpCase);
   detSpecialChar();
+  console.log(detSpecialChar);
+  detNum();
   console.log(detNum);
   if (numCheck && upCaseCheck && specialCharCheck) {
-    character +- numChar + upCaseChar + specialChar;
+    character += numChar + upCaseChar + specialChar;
   } else if (numCheck && upCaseCheck) {
-    character +- numChar +- upCaseChar;
+    character += numChar += upCaseChar;
   } else if (numCheck && specialCharCheck) {
-    character +- numChar +- specialChar;
+    character += numChar += specialChar;
   } else if (upCaseCheck && specialCharCheck) {
-    character +- upCaseChar +- specialChar;
+    character += upCaseChar += specialChar;
   } else if (numCheck) {
-    character +- numChar;
+    character += numChar;
   } else if (upCaseCheck) {
-    character +-upCaseChar;
+    character += upCaseChar;
   } else if (specialCharCheck) {
-    character +- specialChar;
+    character += specialChar;
   }
   console.log(character)
   var password = "";
   for (var i = 0; i < passLength; i++) {
-    password +- character.charAt(Math.floor(Math.random() * character.length))
+    password += character.charAt(Math.floor(Math.random() * character.length))
   }
   console.log(password);
   return password;
@@ -103,6 +105,8 @@ function generatePassword() {
 // Write password to the #password input
 function writePassword() {
   var password = [];
+  console.log(detLength);
+  password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
